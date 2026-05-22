@@ -242,7 +242,9 @@ function initScrollAnimations() {
       if (entry.isIntersecting) {
         entry.target.classList.remove('animate-hidden');
         entry.target.classList.add('animate-visible');
-        observer.unobserve(entry.target);
+      } else {
+        entry.target.classList.remove('animate-visible');
+        entry.target.classList.add('animate-hidden');
       }
     });
   }, { threshold: 0.1 });

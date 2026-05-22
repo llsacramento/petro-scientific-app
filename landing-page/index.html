@@ -114,7 +114,7 @@
 
   <main>
     <!-- Hero Section -->
-    <section id="hero" class="bg-gradient-to-br from-blue-900 via-blue-800 to-blue-700 dark:from-gray-900 dark:via-blue-950 dark:to-gray-900 text-white py-20 px-4 sm:px-6 lg:px-8">
+    <section id="hero" class="bg-gradient-to-br from-blue-900 via-blue-800 to-blue-700 dark:from-gray-900 dark:via-blue-950 dark:to-gray-900 text-white pt-32 pb-20 px-4 sm:px-6 lg:px-8">
       <div class="max-w-7xl mx-auto text-center">
         <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight mb-6">
           Expert Quality Control Services for Petroleum &amp; Scientific Instruments
@@ -195,67 +195,73 @@
     </section>
 
     <!-- Inquiry Form Section -->
-    <section id="inquiry-form" data-animate class="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-900">
-      <div class="max-w-2xl mx-auto bg-white rounded-lg shadow-md p-8 border border-gray-200 dark:bg-gray-800 dark:border-gray-700 dark:shadow-gray-900/30">
-        <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-gray-100 mb-8">Request a Quote</h2>
+    <section id="inquiry-form" data-animate class="py-12 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-900">
+      <div class="max-w-3xl mx-auto bg-white rounded-lg shadow-md p-6 sm:p-8 border border-gray-200 dark:bg-gray-800 dark:border-gray-700 dark:shadow-gray-900/30">
+        <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-gray-100 mb-6">Request a Quote</h2>
 
-        <form id="inquiry-form-element" class="space-y-6" novalidate>
-          <!-- Full Name -->
-          <div>
-            <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-1">Full Name <span class="text-red-600 dark:text-red-400">*</span></label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              required
-              maxlength="100"
-              aria-describedby="name-error"
-              class="w-full min-h-[44px] min-w-[280px] px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-100 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            >
-            <span id="name-error" class="block mt-1 text-sm text-red-600 dark:text-red-400" role="alert"></span>
+        <form id="inquiry-form-element" class="space-y-4" novalidate>
+          <!-- Name + Email row -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <!-- Full Name -->
+            <div>
+              <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-1">Full Name <span class="text-red-600 dark:text-red-400">*</span></label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                required
+                maxlength="100"
+                aria-describedby="name-error"
+                class="w-full min-h-[44px] px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-100 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              >
+              <span id="name-error" class="block mt-1 text-sm text-red-600 dark:text-red-400" role="alert"></span>
+            </div>
+
+            <!-- Email -->
+            <div>
+              <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-1">Email <span class="text-red-600 dark:text-red-400">*</span></label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                maxlength="254"
+                aria-describedby="email-error"
+                class="w-full min-h-[44px] px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-100 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              >
+              <span id="email-error" class="block mt-1 text-sm text-red-600 dark:text-red-400" role="alert"></span>
+            </div>
           </div>
 
-          <!-- Email -->
-          <div>
-            <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-1">Email <span class="text-red-600 dark:text-red-400">*</span></label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              required
-              maxlength="254"
-              aria-describedby="email-error"
-              class="w-full min-h-[44px] min-w-[280px] px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-100 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            >
-            <span id="email-error" class="block mt-1 text-sm text-red-600 dark:text-red-400" role="alert"></span>
-          </div>
+          <!-- Phone + Company row -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <!-- Phone (optional) -->
+            <div>
+              <label for="phone" class="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-1">Phone</label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                maxlength="20"
+                aria-describedby="phone-error"
+                class="w-full min-h-[44px] px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-100 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              >
+              <span id="phone-error" class="block mt-1 text-sm text-red-600 dark:text-red-400" role="alert"></span>
+            </div>
 
-          <!-- Phone (optional) -->
-          <div>
-            <label for="phone" class="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-1">Phone</label>
-            <input
-              type="tel"
-              id="phone"
-              name="phone"
-              maxlength="20"
-              aria-describedby="phone-error"
-              class="w-full min-h-[44px] min-w-[280px] px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-100 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            >
-            <span id="phone-error" class="block mt-1 text-sm text-red-600 dark:text-red-400" role="alert"></span>
-          </div>
-
-          <!-- Company (optional) -->
-          <div>
-            <label for="company" class="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-1">Company</label>
-            <input
-              type="text"
-              id="company"
-              name="company"
-              maxlength="100"
-              aria-describedby="company-error"
-              class="w-full min-h-[44px] min-w-[280px] px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-100 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            >
-            <span id="company-error" class="block mt-1 text-sm text-red-600 dark:text-red-400" role="alert"></span>
+            <!-- Company (optional) -->
+            <div>
+              <label for="company" class="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-1">Company</label>
+              <input
+                type="text"
+                id="company"
+                name="company"
+                maxlength="100"
+                aria-describedby="company-error"
+                class="w-full min-h-[44px] px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-100 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              >
+              <span id="company-error" class="block mt-1 text-sm text-red-600 dark:text-red-400" role="alert"></span>
+            </div>
           </div>
 
           <!-- Message -->
@@ -266,9 +272,9 @@
               name="message"
               required
               maxlength="2000"
-              rows="5"
+              rows="3"
               aria-describedby="message-error"
-              class="w-full min-h-[44px] min-w-[280px] px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-100 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 resize-y"
+              class="w-full min-h-[44px] px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-100 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 resize-y"
             ></textarea>
             <span id="message-error" class="block mt-1 text-sm text-red-600 dark:text-red-400" role="alert"></span>
           </div>
@@ -296,13 +302,13 @@
           <p>
             <span class="sr-only">Phone:</span>
             <a href="tel:+15551234567" class="hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-gray-900 rounded">
-              +1 (555) 123-4567
+              +63 915 333-5399
             </a>
           </p>
           <p>
             <span class="sr-only">Email:</span>
             <a href="mailto:info@petroscientific.com" class="hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-gray-900 rounded">
-              info@petroscientific.com
+              sacrament31372@gmail.com
             </a>
           </p>
           <p>B8 L20, Ivory Crest Village, Salitran 2,<br>Dasmariñas, Cavite 4114</p>
