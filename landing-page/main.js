@@ -122,10 +122,12 @@ async function submitForm(form) {
   const timeoutId = setTimeout(() => controller.abort(), SUBMISSION_TIMEOUT_MS);
 
   try {
+    const formData = new FormData(form);
+    formData.append('form-name', 'inquiry');
     const response = await fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams(new FormData(form)).toString(),
+      body: new URLSearchParams(formData).toString(),
       signal: controller.signal
     });
 
