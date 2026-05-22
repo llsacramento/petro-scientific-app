@@ -199,7 +199,11 @@
       <div class="max-w-3xl mx-auto bg-white rounded-lg shadow-md p-6 sm:p-8 border border-gray-200 dark:bg-gray-800 dark:border-gray-700 dark:shadow-gray-900/30">
         <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-gray-100 mb-6">Request a Quote</h2>
 
-        <form id="inquiry-form-element" class="space-y-4" novalidate>
+        <form id="inquiry-form-element" name="inquiry" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="space-y-4" novalidate>
+          <!-- Honeypot field for spam protection (hidden from users) -->
+          <p class="hidden">
+            <label>Don't fill this out: <input name="bot-field"></label>
+          </p>
           <!-- Name + Email row -->
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <!-- Full Name -->

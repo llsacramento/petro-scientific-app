@@ -109,42 +109,38 @@ function showFieldError(field, message) {
 
 // ===== Form Submission =====
 
-const FORMSPREE_ENDPOINT = "https://formspree.io/f/xlgvbvkb";
 const SUBMISSION_TIMEOUT_MS = 30000;
 
 /**
- * Submits form data to Formspree via fetch POST.
+ * Submits form data to Netlify Forms via fetch POST.
  * Handles timeout via AbortController (30s).
- * @param {Object} formData - { name, email, phone, company, message }
+ * @param {HTMLFormElement} form - The form element
  * @returns {Promise<{ok: boolean, error?: string}>}
  */
-async function submitToFormspree(formData) {
+async function submitForm(form) {
   const controller = new AbortController();
   const timeoutId = setTimeout(() => controller.abort(), SUBMISSION_TIMEOUT_MS);
 
   try {
-    const response = await fetch(FORMSPREE_ENDPOINT, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "Accept": "application/json"
-      },
-      body: JSON.stringify(formData),
+    const response = await fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(new FormData(form)).toString(),
       signal: controller.signal
     });
 
     clearTimeout(timeoutId);
 
     if (!response.ok) {
-      return { ok: false, error: "Something went wrong. Please try again later." };
+      return { ok: false, error: 'Something went wrong. Please try again later.' };
     }
     return { ok: true };
   } catch (err) {
     clearTimeout(timeoutId);
-    if (err.name === "AbortError") {
-      return { ok: false, error: "The request timed out. Please try again." };
+    if (err.name === 'AbortError') {
+      return { ok: false, error: 'The request timed out. Please try again.' };
     }
-    return { ok: false, error: "Unable to submit your inquiry. Please check your connection and try again." };
+    return { ok: false, error: 'Unable to submit your inquiry. Please check your connection and try again.' };
   }
 }
 
@@ -396,15 +392,6 @@ document.addEventListener('DOMContentLoaded', function () {
         return;
       }
 
-      // Gather form data
-      var formData = {
-        name: form.elements['name'].value,
-        email: form.elements['email'].value,
-        phone: form.elements['phone'].value,
-        company: form.elements['company'].value,
-        message: form.elements['message'].value
-      };
-
       // Disable submit button and show loading indicator
       var submitButton = form.querySelector('button[type="submit"]');
       var originalButtonText = submitButton ? submitButton.textContent : '';
@@ -413,8 +400,8 @@ document.addEventListener('DOMContentLoaded', function () {
         submitButton.textContent = 'Submitting...';
       }
 
-      // Submit to Formspree
-      var result = await submitToFormspree(formData);
+      // Submit to Netlify Forms
+      var result = await submitForm(form);
 
       if (result.ok) {
         // Success: show confirmation and reset form
@@ -460,12 +447,11 @@ if (typeof module !== 'undefined') {
   module.exports = {
     FORM_CONSTRAINTS,
     FIELD_LABELS,
-    FORMSPREE_ENDPOINT,
     SUBMISSION_TIMEOUT_MS,
     validateField,
     validateForm,
     showFieldError,
-    submitToFormspree,
+    submitForm,
     showFormMessage,
     toggleMobileMenu,
     initScrollAnimations,
