@@ -1,7 +1,7 @@
 /**
  * PetroScientific Landing Page - Main JavaScript
  *
- * Provides form validation, form submission (Formspree),
+ * Provides form validation, form submission (Netlify Forms),
  * smooth scrolling, and mobile menu functionality.
  */
 
