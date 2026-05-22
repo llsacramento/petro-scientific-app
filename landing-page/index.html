@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PetroScientific Quality Control Services</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class'
+    }
+  </script>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="styles.css">
+  <script>
+    // Prevents flash of wrong theme (FOUC)
+    (function() {
+      try {
+        var theme = localStorage.getItem('ps-theme');
+        if (!theme) {
+          theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
+        if (theme === 'dark') {
+          document.documentElement.classList.add('dark');
+        }
+      } catch (e) {
+        // localStorage unavailable, fall back to system preference
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          document.documentElement.classList.add('dark');
+        }
+      }
+    })();
+  </script>
+</head>
+<body>
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white shadow-md dark:bg-gray-900 dark:shadow-gray-900/50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <!-- Company Logo -->
+        <a href="#hero" class="flex-shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 rounded">
+          <img src="assets/logo.svg" alt="PetroScientific Quality Control Services logo" class="h-10 w-auto">
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <div class="hidden md:flex md:items-center md:space-x-8">
+          <a href="#hero" class="text-gray-700 hover:text-blue-600 dark:text-gray-200 dark:hover:text-blue-400 font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 rounded px-2 py-1">Home</a>
+          <a href="#services" class="text-gray-700 hover:text-blue-600 dark:text-gray-200 dark:hover:text-blue-400 font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 rounded px-2 py-1">Services</a>
+          <a href="#why-choose-us" class="text-gray-700 hover:text-blue-600 dark:text-gray-200 dark:hover:text-blue-400 font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 rounded px-2 py-1">Why Choose Us</a>
+          <a href="#inquiry-form" class="text-gray-700 hover:text-blue-600 dark:text-gray-200 dark:hover:text-blue-400 font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 rounded px-2 py-1">Contact</a>
+        </div>
+
+        <!-- Dark Mode Toggle & Mobile Menu -->
+        <div class="flex items-center space-x-2">
+          <!-- Dark Mode Toggle Button -->
+          <button
+            type="button"
+            id="theme-toggle"
+            class="inline-flex items-center justify-center p-2 rounded-md text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2"
+            aria-label="Switch to dark mode"
+          >
+            <!-- Moon icon (visible in light mode) -->
+            <svg class="h-5 w-5 dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12.79A9 9 0 1111.21 3a7 7 0 009.79 9.79z" />
+            </svg>
+            <!-- Sun icon (visible in dark mode) -->
+            <svg class="h-5 w-5 hidden dark:block" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m8.66-13.66l-.71.71M4.05 19.95l-.71.71M21 12h-1M4 12H3m16.95 7.95l-.71-.71M4.05 4.05l-.71-.71M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+            </svg>
+          </button>
+
+          <!-- Hamburger Menu Button (mobile only) -->
+          <button
+            type="button"
+            id="mobile-menu-button"
+            class="md:hidden inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-blue-600 hover:bg-gray-100 dark:text-gray-200 dark:hover:text-blue-400 dark:hover:bg-gray-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2"
+            aria-expanded="false"
+            aria-controls="mobile-menu"
+            aria-label="Toggle navigation menu"
+          >
+            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Menu Panel -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200 dark:bg-gray-900 dark:border-gray-700">
+      <div class="px-4 py-3 space-y-2">
+        <a href="#hero" class="block px-3 py-2 rounded-md text-gray-700 hover:text-blue-600 hover:bg-gray-50 dark:text-gray-200 dark:hover:text-blue-400 dark:hover:bg-gray-800 font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2">Home</a>
+        <a href="#services" class="block px-3 py-2 rounded-md text-gray-700 hover:text-blue-600 hover:bg-gray-50 dark:text-gray-200 dark:hover:text-blue-400 dark:hover:bg-gray-800 font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2">Services</a>
+        <a href="#why-choose-us" class="block px-3 py-2 rounded-md text-gray-700 hover:text-blue-600 hover:bg-gray-50 dark:text-gray-200 dark:hover:text-blue-400 dark:hover:bg-gray-800 font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2">Why Choose Us</a>
+        <a href="#inquiry-form" class="block px-3 py-2 rounded-md text-gray-700 hover:text-blue-600 hover:bg-gray-50 dark:text-gray-200 dark:hover:text-blue-400 dark:hover:bg-gray-800 font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <!-- Hero Section -->
+    <section id="hero" class="bg-gradient-to-br from-blue-900 via-blue-800 to-blue-700 dark:from-gray-900 dark:via-blue-950 dark:to-gray-900 text-white py-20 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-7xl mx-auto text-center">
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight mb-6">
+          Expert Quality Control Services for Petroleum &amp; Scientific Instruments
+        </h1>
+        <p class="text-lg sm:text-xl text-blue-100 max-w-3xl mx-auto mb-12">
+          Trusted by industry leaders for precision calibration, repair, and validation of laboratory and field instruments.
+        </p>
+
+        <!-- Trust Indicators -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-4xl mx-auto mb-12">
+          <div class="flex flex-col items-center">
+            <span class="text-4xl font-bold">25+</span>
+            <span class="text-blue-200 mt-1">Years Experience</span>
+          </div>
+          <div class="flex flex-col items-center">
+            <span class="text-4xl font-bold">10,000+</span>
+            <span class="text-blue-200 mt-1">Instruments Serviced</span>
+          </div>
+          <div class="flex flex-col items-center">
+            <span class="text-4xl font-bold">ISO 17025</span>
+            <span class="text-blue-200 mt-1">Certified Laboratory</span>
+          </div>
+        </div>
+
+        <!-- CTA Button -->
+        <a href="#inquiry-form" class="inline-block bg-yellow-500 hover:bg-yellow-400 text-blue-900 font-semibold text-lg px-8 py-4 rounded-lg min-w-[44px] min-h-[44px] transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-yellow-300 focus:ring-offset-2 focus:ring-offset-blue-900">
+          Request a Quote
+        </a>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" data-animate class="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-900">
+      <div class="max-w-7xl mx-auto">
+        <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-gray-100 mb-12">Our Services</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Repair & Troubleshooting -->
+          <div class="bg-white rounded-lg shadow-md p-6 border border-gray-200 dark:bg-gray-800 dark:border-gray-700 dark:shadow-gray-900/30">
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-3">Repair &amp; Troubleshooting</h3>
+            <p class="text-gray-600 dark:text-gray-300 leading-relaxed">Expert diagnosis and repair of petroleum testing instruments. Our certified technicians restore your equipment to factory specifications with minimal downtime.</p>
+          </div>
+          <!-- Calibration & Validation -->
+          <div class="bg-white rounded-lg shadow-md p-6 border border-gray-200 dark:bg-gray-800 dark:border-gray-700 dark:shadow-gray-900/30">
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-3">Calibration &amp; Validation</h3>
+            <p class="text-gray-600 dark:text-gray-300 leading-relaxed">Precision calibration services traceable to national standards. We ensure your instruments deliver accurate, reliable results every time.</p>
+          </div>
+          <!-- Genuine Spare Parts -->
+          <div class="bg-white rounded-lg shadow-md p-6 border border-gray-200 dark:bg-gray-800 dark:border-gray-700 dark:shadow-gray-900/30">
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-3">Genuine Spare Parts</h3>
+            <p class="text-gray-600 dark:text-gray-300 leading-relaxed">Access to authentic manufacturer parts for all major petroleum testing instrument brands. Fast delivery to minimize equipment downtime.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section id="why-choose-us" data-animate class="py-16 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-800">
+      <div class="max-w-7xl mx-auto">
+        <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-gray-100 mb-12">Why Choose Us</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- ISO 17025 Accredited -->
+          <div class="bg-gray-50 rounded-lg p-6 text-center border border-gray-200 dark:bg-gray-900 dark:border-gray-700">
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-3">ISO 17025 Accredited</h3>
+            <p class="text-gray-600 dark:text-gray-300 leading-relaxed">Our laboratory operates under ISO/IEC 17025 accreditation, ensuring the highest standards of technical competence and quality management.</p>
+          </div>
+          <!-- Rapid Response -->
+          <div class="bg-gray-50 rounded-lg p-6 text-center border border-gray-200 dark:bg-gray-900 dark:border-gray-700">
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-3">Rapid Response</h3>
+            <p class="text-gray-600 dark:text-gray-300 leading-relaxed">Emergency service available with 24-48 hour turnaround. We understand that downtime costs money and act accordingly.</p>
+          </div>
+          <!-- Genuine Parts Only -->
+          <div class="bg-gray-50 rounded-lg p-6 text-center border border-gray-200 dark:bg-gray-900 dark:border-gray-700">
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-3">Genuine Parts Only</h3>
+            <p class="text-gray-600 dark:text-gray-300 leading-relaxed">We exclusively use manufacturer-approved components, maintaining instrument integrity and warranty compliance.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Inquiry Form Section -->
+    <section id="inquiry-form" data-animate class="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-900">
+      <div class="max-w-2xl mx-auto bg-white rounded-lg shadow-md p-8 border border-gray-200 dark:bg-gray-800 dark:border-gray-700 dark:shadow-gray-900/30">
+        <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-gray-100 mb-8">Request a Quote</h2>
+
+        <form id="inquiry-form-element" class="space-y-6" novalidate>
+          <!-- Full Name -->
+          <div>
+            <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-1">Full Name <span class="text-red-600 dark:text-red-400">*</span></label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              required
+              maxlength="100"
+              aria-describedby="name-error"
+              class="w-full min-h-[44px] min-w-[280px] px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-100 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            >
+            <span id="name-error" class="block mt-1 text-sm text-red-600 dark:text-red-400" role="alert"></span>
+          </div>
+
+          <!-- Email -->
+          <div>
+            <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-1">Email <span class="text-red-600 dark:text-red-400">*</span></label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              maxlength="254"
+              aria-describedby="email-error"
+              class="w-full min-h-[44px] min-w-[280px] px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-100 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            >
+            <span id="email-error" class="block mt-1 text-sm text-red-600 dark:text-red-400" role="alert"></span>
+          </div>
+
+          <!-- Phone (optional) -->
+          <div>
+            <label for="phone" class="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-1">Phone</label>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              maxlength="20"
+              aria-describedby="phone-error"
+              class="w-full min-h-[44px] min-w-[280px] px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-100 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            >
+            <span id="phone-error" class="block mt-1 text-sm text-red-600 dark:text-red-400" role="alert"></span>
+          </div>
+
+          <!-- Company (optional) -->
+          <div>
+            <label for="company" class="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-1">Company</label>
+            <input
+              type="text"
+              id="company"
+              name="company"
+              maxlength="100"
+              aria-describedby="company-error"
+              class="w-full min-h-[44px] min-w-[280px] px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-100 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            >
+            <span id="company-error" class="block mt-1 text-sm text-red-600 dark:text-red-400" role="alert"></span>
+          </div>
+
+          <!-- Message -->
+          <div>
+            <label for="message" class="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-1">Message <span class="text-red-600 dark:text-red-400">*</span></label>
+            <textarea
+              id="message"
+              name="message"
+              required
+              maxlength="2000"
+              rows="5"
+              aria-describedby="message-error"
+              class="w-full min-h-[44px] min-w-[280px] px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-100 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 resize-y"
+            ></textarea>
+            <span id="message-error" class="block mt-1 text-sm text-red-600 dark:text-red-400" role="alert"></span>
+          </div>
+
+          <!-- Submit Button -->
+          <div>
+            <button
+              type="submit"
+              class="w-full min-h-[44px] min-w-[44px] bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white font-semibold py-3 px-6 rounded-md transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 dark:focus:ring-offset-gray-800"
+            >
+              Submit Inquiry
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer id="footer" class="bg-gray-900 dark:bg-gray-950 text-gray-300 py-12 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Contact Information -->
+      <div>
+        <h3 class="text-white text-lg font-semibold mb-4">Contact Us</h3>
+        <address class="not-italic space-y-2">
+          <p>
+            <span class="sr-only">Phone:</span>
+            <a href="tel:+15551234567" class="hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-gray-900 rounded">
+              +1 (555) 123-4567
+            </a>
+          </p>
+          <p>
+            <span class="sr-only">Email:</span>
+            <a href="mailto:info@petroscientific.com" class="hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-gray-900 rounded">
+              info@petroscientific.com
+            </a>
+          </p>
+          <p>B8 L20, Ivory Crest Village, Salitran 2,<br>Dasmariñas, Cavite 4114</p>
+        </address>
+      </div>
+
+      <!-- Quick Links -->
+      <div>
+        <h3 class="text-white text-lg font-semibold mb-4">Quick Links</h3>
+        <ul class="space-y-2">
+          <li>
+            <a href="#hero" class="hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-gray-900 rounded">
+              Home
+            </a>
+          </li>
+          <li>
+            <a href="#services" class="hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-gray-900 rounded">
+              Services
+            </a>
+          </li>
+          <li>
+            <a href="#why-choose-us" class="hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-gray-900 rounded">
+              Why Choose Us
+            </a>
+          </li>
+          <li>
+            <a href="#inquiry-form" class="hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-gray-900 rounded">
+              Contact
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Legal Notices -->
+      <div>
+        <h3 class="text-white text-lg font-semibold mb-4">Legal</h3>
+        <ul class="space-y-2">
+          <li>
+            <a href="#" class="hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-gray-900 rounded">
+              Privacy Policy
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="max-w-7xl mx-auto mt-8 pt-8 border-t border-gray-700 dark:border-gray-600 text-center text-sm text-gray-400">
+      <p>&copy; 2026 PetroScientific Quality Control Services. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="main.js" defer></script>
+</body>
+</html>

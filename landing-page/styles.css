@@ -1,0 +1,79 @@
+/* ===== Smooth Scrolling ===== */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ===== Prevent Horizontal Overflow ===== */
+body {
+  overflow-x: hidden;
+  min-width: 320px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ===== Fade-in Animation for Section Reveals ===== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+/* ===== Mobile Menu Transitions ===== */
+.mobile-menu-enter {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.mobile-menu-hidden {
+  opacity: 0;
+  transform: translateY(-10px);
+  pointer-events: none;
+}
+
+.mobile-menu-visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* ===== Scroll Animation States ===== */
+.animate-hidden {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.animate-visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* ===== Reduced Motion Preference ===== */
+@media (prefers-reduced-motion: reduce) {
+  .animate-hidden {
+    opacity: 1;
+    transform: none;
+  }
+
+  .animate-visible {
+    transition: none;
+  }
+}
+
+/* ===== Focus-Visible Styles for Keyboard Navigation ===== */
+*:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+}
+
+/* Remove default focus outline for mouse users */
+*:focus:not(:focus-visible) {
+  outline: none;
+}
