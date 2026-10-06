@@ -1,7 +1,7 @@
 /**
  * PetroScientific Landing Page - Main JavaScript
  *
- * Provides form validation, form submission (Netlify Forms),
+ * Provides form validation, form submission (Formspree),
  * smooth scrolling, and mobile menu functionality.
  */
 
@@ -112,7 +112,7 @@ function showFieldError(field, message) {
 const SUBMISSION_TIMEOUT_MS = 30000;
 
 /**
- * Submits form data to Netlify Forms via fetch POST.
+ * Submits form data to Formspree via fetch POST.
  * Handles timeout via AbortController (30s).
  * @param {HTMLFormElement} form - The form element
  * @returns {Promise<{ok: boolean, error?: string}>}
@@ -123,10 +123,12 @@ async function submitForm(form) {
 
   try {
     const formData = new FormData(form);
-    formData.append('form-name', 'inquiry');
-    const response = await fetch('/', {
+    const response = await fetch('https://formspree.io/f/xlgvbvkb', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Accept': 'application/json'
+      },
       body: new URLSearchParams(formData).toString(),
       signal: controller.signal
     });
@@ -402,7 +404,7 @@ document.addEventListener('DOMContentLoaded', function () {
         submitButton.textContent = 'Submitting...';
       }
 
-      // Submit to Netlify Forms
+      // Submit to Formspree
       var result = await submitForm(form);
 
       if (result.ok) {
